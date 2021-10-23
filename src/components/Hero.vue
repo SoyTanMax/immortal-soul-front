@@ -1,9 +1,5 @@
 <template>
     <div class="hero">
-        <div class="name">
-            <p class="bruce">bruce wayne</p>
-            <p class="immortal">immortal soul</p>
-        </div>
         <img class="logo" src="@/assets/logo.svg" alt="">
     </div>
 </template>
@@ -48,6 +44,7 @@ p{
 .logo{
     position: absolute;
     z-index: 98;
+    bottom: 0;
     max-height: 100vh;
     animation: appear 6s ease-in;
 }
