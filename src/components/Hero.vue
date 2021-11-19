@@ -1,5 +1,6 @@
 <template>
     <div class="hero">
+        
         <div class="name">
             <p class="bruce">bruce wayne</p>
             <p class="immortal">immortal soul</p>
@@ -23,8 +24,9 @@
     background: #000000;
     width: 100%;
     height: 100vh;    
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
 }
 .name{
