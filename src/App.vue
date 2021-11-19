@@ -1,6 +1,8 @@
 <template>
-  <Navbar />
-  <router-view/>
+  <div class="app">
+    <Navbar/>
+    <router-view/>
+  </div>
 </template>
 
 <script>
@@ -16,7 +18,8 @@ export default {
 </script>
 
 <style>
-* { 
-  margin: 0 !important; 
+.app{
+  position: relative;
 }
+
 </style>

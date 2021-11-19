@@ -1,15 +1,15 @@
 <template>
     <div class="hero">
-        <Animation v-if="animation"/>
-        <div class="columns" v-else>
+        <div class="columns">
             <div class="column coin">
                 <Coin />
             </div>
             <div class="column two has-text-white">
-                <p class="has-font-weight-light title has-text-white block">{{ text.home.title }}</p>
-                <p class="description block">{{ text.home.description }}</p>
+                <p class="has-font-weight-light title has-text-white block">{{ text.nft.title }}</p>
+                <p class="description block">{{ text.nft.description }}</p>
+                <p class="description block">{{ text.nft.description2 }}</p>
                 <div class="line"></div>
-                <button class="button is-large block">{{ text.home.button }}</button>
+                <button class="button is-large block">{{ text.nft.button }}</button>
             </div>
         </div>
         <img class="logo" src="@/assets/logo.svg" alt="">
@@ -18,24 +18,14 @@
 
 <script>
 import text from '@/lang/texts'
-import Animation from '@/components/Animation.vue'
 import Coin from '@/components/Coin.vue'
-import { ref } from '@vue/reactivity'
     export default {
-        name: 'Hero',
+        name: 'NFT',
         components:{
-            Animation,
             Coin
         },
         setup(){
-            const animation = ref(true);
-
-            setTimeout(
-                function(){
-                    animation.value = false
-                }, 12500
-            )
-            return { animation, text}
+            return { text}
         }
     }
 </script>
