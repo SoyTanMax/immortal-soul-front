@@ -2,22 +2,41 @@
     <nav class="navbar is-transparent">
         <div class="navbar-start">
             <div class="navbar-item">
-                <p class="is-uppercase logo">Immortal Soul</p>
+                <router-link class="navbar-item" :to="{name: 'Home'}">
+                    <p class="is-uppercase logo">Immortal Soul</p>
+                </router-link>
             </div>
         </div>
-        <div class="navbar-end">
-            <router-link class="navbar-item" :to="{name: 'Home'}">HOME</router-link>
-            <router-link class="navbar-item" :to="{name: 'Nft'}">NFT</router-link>
-            <router-link class="navbar-item" :to="{name: 'About'}">PREVIEW</router-link>
-            <router-link class="navbar-item" :to="{name: 'About'}">ROADMAP</router-link>
-            <router-link class="navbar-item" :to="{name: 'About'}">FAQ</router-link>
+        <div class="navbar-burger" v-if="showNav == false" @click="changeState">
+            <span class="has-text-white"></span>
+            <span class="has-text-white"></span>
+            <span class="has-text-white"></span>
+        </div>
+        <div class="navbar-end" >
+            <div class="navbar-menu" :class="{ 'is-active': showNav }">
+                <router-link class="navbar-item" :to="{name: 'Nft'}">NFT</router-link>
+                <router-link class="navbar-item" :to="{name: 'About'}">PREVIEW</router-link>
+                <router-link class="navbar-item" :to="{name: 'About'}">ROADMAP</router-link>
+                <router-link class="navbar-item" :to="{name: 'About'}">FAQ</router-link>
+            </div>
         </div>
     </nav>
 </template>
 
 <script>
     export default {
-        name: 'Navbar'
+        name: 'Navbar',
+        data() {
+            return {
+                showNav: false
+            }
+        },
+        methods: {
+            changeState(){
+                this.showNav = !this.showNav
+                this.$emit('changeState', this.showNav)
+            }
+        }
     }
 </script>
 
@@ -31,6 +50,7 @@
     -webkit-text-fill-color: transparent;
 }
 .navbar{
+    font-family: Souvenir;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,5 +72,33 @@ a.router-link-exact-active, a.router-link-active{
 }
 a:hover{
     color: white !important;
+}
+
+@media screen and (max-width: 1023px) {
+    .logo{
+        font-size: 24px;
+    }
+    .navbar{
+        z-index: 99;
+        padding-left: var(--vertical-padding-mobile);
+        padding-right: var(--vertical-padding-mobile);
+    }
+    .navbar-burger{
+        position: relative;
+        z-index: 99;
+    }
+    .navbar-menu{
+        position: absolute;
+        z-index: 99;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 90%;
+        background: #191A1D;
+        border-radius: 24px 0 0 24px ;
+        padding-left: var(--vertical-padding-mobile);
+        padding-right: var(--vertical-padding-mobile);
+        padding-top: 72px;
+    }
 }
 </style>

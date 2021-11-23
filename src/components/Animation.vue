@@ -39,6 +39,11 @@ p{
     animation: flip2 9s ease-in;
     transform: rotateX(0deg);
 }
+
+
+
+
+
 /* Animations */
 
 @keyframes flip1 {

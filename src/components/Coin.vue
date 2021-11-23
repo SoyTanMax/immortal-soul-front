@@ -17,7 +17,6 @@
   content: '';
   display: block;
   position: relative;
-  height: var(--coin-size);
   width: var(--coin-size);
   border-radius: 50%;
   background-color: var(--face);

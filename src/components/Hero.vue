@@ -1,5 +1,5 @@
 <template>
-    <div class="hero">
+    <div class="hero is-hidden-mobile">
         <Animation v-if="animation"/>
         <div class="columns" v-else>
             <div class="column coin">
@@ -82,6 +82,7 @@ import { ref } from '@vue/reactivity'
     font-weight: 500;
     font-size: 16px;
     line-height: 30px;
+    font-family: Souvenir;
 }
 .line{
     height: 2px;

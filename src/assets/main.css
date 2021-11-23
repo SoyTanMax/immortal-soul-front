@@ -4,9 +4,16 @@
 
 @import "~bulma/css/bulma.css";
 
+@font-face {
+    font-family: "Souvenir";
+    src: local("Souvenir"),
+        url(../fonts/Souvenir-Medium.otf);
+}
+
 :root{
     --navbar-height: 72px;
     --vertical-padding: 96px;
+    --vertical-padding-mobile: 24px;
 
     --grey-link: #a7a7a7;
     --gold: #DA9628;
@@ -16,6 +23,7 @@
     --side: #896c3b;
     --side-dark: #120e08;
     --coin-size: 300px;
+    --coin-size-mobile: 150px;
     --coin-face: url('caesar.png');
       
 }
