@@ -1,39 +1,30 @@
 <template>
     <div class="hero is-transparent">
-        <Animation v-if="animation"/>
-        <div v-else class="columns">
+        <div class="columns">
             <div class="column coin">
                 <Coin />
             </div>
             <div class="column two has-text-white">
-                <p class="has-font-weight-light title has-text-white block">{{ text.home.title }}</p>
-                <p class="description block">{{ text.home.description }}</p>
+                <p class="has-font-weight-light title has-text-white block">{{ text.nft.title }}</p>
+                <p class="description block">{{ text.nft.description }}</p>
+                <p class="description block">{{ text.nft.description2 }}</p>
                 <div class="line"></div>
-                <button class="button is-large block">{{ text.home.button }}</button>
+                <button class="button is-large block">{{ text.nft.button }}</button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import Animation from '@/components/Animation.vue'
     import Coin from '@/components/Coin.vue'
     import text from '@/lang/texts'
-import { ref } from '@vue/reactivity'
     export default {
-        name: 'Hero',
+        name: 'NFT',
         components: {
-            Animation,
             Coin
         },
         setup(){
-            const animation = ref(true);
-            setTimeout(
-                function(){
-                    animation.value = false
-                }, 12500
-            )
-            return { animation, text}
+            return { text }
         }
     }
 </script>
@@ -45,9 +36,9 @@ import { ref } from '@vue/reactivity'
     z-index: 99;
     width: 100%;
     height: 100vh;    
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
+    
     padding-right: var(--vertical-padding);
     padding-left: var(--vertical-padding);
 } 
@@ -108,6 +99,7 @@ import { ref } from '@vue/reactivity'
         min-height: 320px;
     }
 }
+
 
 @keyframes appear {
     0%{

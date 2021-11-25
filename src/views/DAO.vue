@@ -1,21 +1,26 @@
 <template>
-  <div class="home">
-    <Hero />
+  <div class="dao">
+    <DAO />
     <Logo />
   </div>
 </template>
 
 <script>
 
-import Hero from '@/components/Hero.vue'
+import DAO from '@/components/Dao.vue'
 import Logo from '@/components/Logo.vue'
-
 export default {
   name: 'Home',
+  props: ['chapters'],
   components: {
-    Hero,
+    DAO,
     Logo
   }
 }
-
 </script>
+
+<style scoped>
+.dao{
+  overflow: hidden;
+}
+</style>

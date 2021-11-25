@@ -1,19 +1,19 @@
 <template>
   <div class="home">
-    <Hero />
+    <NFT />
     <Logo />
   </div>
 </template>
 
 <script>
 
-import Hero from '@/components/Hero.vue'
+import NFT from '@/components/Nft.vue'
 import Logo from '@/components/Logo.vue'
-
 export default {
   name: 'Home',
+  props: ['chapters'],
   components: {
-    Hero,
+    NFT,
     Logo
   }
 }
