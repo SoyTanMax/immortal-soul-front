@@ -17,14 +17,14 @@
     import Sidebar from '@/components/Sidebar.vue'
     import Chapter from '@/components/Chapter.vue'
     export default {
-        props: ['chapters'],
+        props: ['chapters', 'selectedChapter'],
         components: {
             Sidebar,
             Chapter
         },
         data(){
             return {
-                selectedChapter: 0
+                selectedChapter: this.selectedChapter
             }
         },
         methods: {

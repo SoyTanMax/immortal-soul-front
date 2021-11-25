@@ -26,6 +26,7 @@
 
 <style scoped>
     .chapter{
+        position: relative;
         font-family: 'Merriweather', serif;
         font-size: 16px;
         background: #171B20;
@@ -49,9 +50,6 @@
     .name{
         padding: 8px;
     }
-    .text{
-        -webkit-mask-image: linear-gradient(to bottom, #171B20 80%, transparent 100%);
-    }
     @media screen and (max-width: 1023px) {
         .chapter{
             margin-left: 0;
@@ -60,7 +58,6 @@
             font-size: 14px;
             background: black;
             -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-            
         }
         p{
             line-height: 32px;
