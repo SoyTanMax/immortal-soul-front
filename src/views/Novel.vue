@@ -1,14 +1,11 @@
 <template>
     <div class="novel">
         <Sidebar
-            @updateChapter="changeChapter($event)"
             :chapters="chapters"
-            :selectedChapter="selectedChapter"
             class="is-hidden-touch"    
         />
         <Chapter 
             :chapters="chapters"
-            :selectedChapter="selectedChapter"
         />  
     </div>
 </template>
@@ -17,20 +14,10 @@
     import Sidebar from '@/components/Sidebar.vue'
     import Chapter from '@/components/Chapter.vue'
     export default {
-        props: ['chapters', 'selectedChapter'],
+        props: ['chapters'],
         components: {
             Sidebar,
             Chapter
-        },
-        data(){
-            return {
-                selectedChapter: this.selectedChapter
-            }
-        },
-        methods: {
-            changeChapter(updatedChapter){
-                this.selectedChapter = updatedChapter
-            }
         }
     }
 </script>

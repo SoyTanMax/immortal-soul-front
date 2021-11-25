@@ -15,7 +15,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </div>
-                <p>{{ selectedChapter }}</p>
+                <p>{{ route }}</p>
                 <router-link class="navbar-item block-mobile" :to="{name: 'NFT'}">
                     NFT
                 </router-link>
@@ -31,16 +31,17 @@
 </template>
 
 <script>
-import { ref } from '@vue/reactivity'
+    import { computed, ref } from '@vue/reactivity'
     export default {
         name: 'Navbar',
-        props: ['chapters', 'selectedChapter'],
+        props: ['chapters'],
         setup(){
+
             const showNav = ref(false)
 
             const user = ref(true)
 
-            return { showNav, user }
+            return { showNav, user}
         }
     }
 </script>
@@ -107,6 +108,7 @@ img{
         padding-top: 24px;
         padding-left: var(--vertical-padding-mobile);
         padding-right: var(--vertical-padding-mobile);
+        overflow-y: scroll;
     }
     .navbar-burger{
         position: absolute;

@@ -1,8 +1,8 @@
 <template>
     <div class="sidebar">
         <div v-for="chapter in chapters" :key="chapter.id">
-            <div class="chapter-name" @click="selectedChapter = chapter.id; updateChapter()">
-                <p v-if="selectedChapter == chapter.id" class="is-uppercase name has-text-white">{{ chapter.roman }} {{ chapter.name }}</p> 
+            <div class="chapter-name" @click="changeChapter(chapter.id)">
+                <p v-if="$store.state.currentChapter == chapter.id" class="is-uppercase name has-text-white">{{ chapter.roman }} {{ chapter.name }}</p> 
                 <p v-else class="is-uppercase name">{{ chapter.roman }} {{ chapter.name }}</p> 
             </div>
         </div>
@@ -10,14 +10,20 @@
 </template>
 
 <script>
+    import { useStore } from 'vuex'
     export default {
-        props: ['chapters', 'selectedChapter'],
-        methods: {
-            updateChapter(){
-                console.log(this.selectedChapter)
-                this.$emit('updateChapter', this.selectedChapter);
+        props: ['chapters'],
+        setup(){
+
+            const store = useStore()
+
+            function changeChapter(id){
+                store.commit('CHANGE_CHAPTER', id)
             }
+
+            return { changeChapter }
         }
+        
     }
 </script>
 

@@ -1,11 +1,8 @@
 <template>
     <div class="hero">
-        <Navbar class="navbar" 
-            :selectedChapter="selectedChapter"
-        />
+        <Navbar class="navbar" />
         <router-view class="router" 
-            :chapters="chapters"
-            :selectedChapter="selectedChapter">
+            :chapters="chapters">
         </router-view>
     </div>
 </template>
@@ -13,7 +10,6 @@
 <script>
     import Navbar from '@/components/Navbar.vue'
     import getChapters from '@/composables/getChapters'
-import { ref } from '@vue/reactivity'
 
     export default {
         name: 'Hero',
@@ -24,9 +20,7 @@ import { ref } from '@vue/reactivity'
             const { chapters, error, load } = getChapters()
             load()
 
-            const selectedChapter = ref(0) 
-
-            return {chapters, error, selectedChapter}
+            return {chapters, error}
         }
     }
 </script>

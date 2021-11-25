@@ -1,12 +1,15 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
 
 export default createStore({
   state: {
-      selectedChapter: 0
+      currentChapter: 0,
+      user: false
   },
   mutations: {
-      changeChapter( state ) {
-          state.count++
+      CHANGE_CHAPTER(state, id){
+          state.currentChapter = id
       }
-  }
-})
+  },
+  actions: {},
+  getters: {}
+});

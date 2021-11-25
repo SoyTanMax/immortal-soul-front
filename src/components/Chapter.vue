@@ -1,7 +1,7 @@
 <template>
     <div class="chapter">
         <div v-for="chapter in chapters" :key="chapter.id">
-            <div class="has-text-white" v-if="chapter.id == selectedChapter">
+            <div class="has-text-white" v-if="chapter.id == $store.state.currentChapter">
                 <p class="has-text-centered is-capitalized is-size-4 block">{{ chapter.name }}</p>
                 <div class="text">
                     <p>{{ chapter.text }}</p>
@@ -20,7 +20,7 @@
 
 <script>
     export default {
-        props: ['chapters', 'selectedChapter'],
+        props: ['chapters']
     }
 </script>
 
