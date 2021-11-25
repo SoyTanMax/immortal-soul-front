@@ -1,10 +1,10 @@
 <template>
     <div class="hero is-transparent">
         <div class="columns">
-            <div class="column coin">
+            <div class="column coin is-half">
                 <Coin />
             </div>
-            <div class="column two has-text-white">
+            <div class="column two has-text-white is-half">
                 <p class="has-font-weight-light title has-text-white block">{{ text.nft.title }}</p>
                 <p class="description block">{{ text.nft.description }}</p>
                 <p class="description block">{{ text.nft.description2 }}</p>
@@ -36,9 +36,9 @@
     z-index: 99;
     width: 100%;
     height: 100vh;    
-    display: grid;
-    place-items: center;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-right: var(--vertical-padding);
     padding-left: var(--vertical-padding);
 } 

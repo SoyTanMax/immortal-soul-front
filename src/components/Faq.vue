@@ -4,20 +4,13 @@
             <div class="column one is-hidden-mobile">
                 <img src="@/assets/candles.png" alt="">
             </div>
-            <div class="column two has-text-white">
+            <div class="column"></div>
+            <div class="column two has-text-white is-6">
                 <p class="has-font-weight-light title has-text-white block has-text-centered-mobile">{{ text.faq.title }}</p>
                 <div class="question block" v-for="question in text.faq.questions" :key="question.id">
                     <p class="is-size-5 flex block" @click="handleClick(question.id)">
-                        <svg v-if="answers[question.id]" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#DA9628">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 12H6" />
-                        </svg>
-                        <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#DA9628">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                        </svg>
-                        
                         {{ question.question }}
                     </p>
-                    <p class="answer" v-if="answers[question.id]">{{ question.answer }}</p>
                 </div>
             </div>
         </div>
@@ -49,8 +42,9 @@
     z-index: 99;
     width: 100%;
     height: 100vh;     
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-right: var(--vertical-padding);
     padding-left: var(--vertical-padding);
 } 

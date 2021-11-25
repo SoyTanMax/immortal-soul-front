@@ -1,10 +1,10 @@
 <template>
     <div class="hero is-transparent">
         <div class="columns">
-            <div class="column one is-hidden-mobile">
+            <div class="column one is-hidden-mobile is-6">
                 <img src="@/assets/necklace.png" alt="">
             </div>
-            <div class="column two has-text-white">
+            <div class="column two has-text-white is-5">
                 <p class="has-font-weight-light title has-text-white block has-text-centered-mobile">{{ text.dao.title }}</p>
                 <div v-for="phase in text.dao.phases" :key="phase.number">
                     <p class="phase"><span class="has-text-weight-bold">{{ phase.percentage }} %</span> - {{ phase.text }}</p> <br>
@@ -31,8 +31,9 @@
     z-index: 99;
     width: 100%;
     height: 100vh;     
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-right: var(--vertical-padding);
     padding-left: var(--vertical-padding);
 } 

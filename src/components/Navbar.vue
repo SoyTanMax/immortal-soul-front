@@ -18,11 +18,11 @@
                 <router-link class="navbar-item block-mobile" :to="{name: 'NFT'}">
                     NFT
                 </router-link>
+                <router-link class="navbar-item block-mobile" :to="{name: 'DAO'}">DAO</router-link>
                 <div>
                     <router-link v-if="user" class="navbar-item block-mobile" :to="{name: 'Novel'}">NOVEL</router-link>
                     <router-link v-else class="navbar-item block-mobile" :to="{name: 'Novel'}">PREVIEW</router-link>
                 </div>
-                <router-link class="navbar-item block-mobile" :to="{name: 'DAO'}">DAO</router-link>
                 <router-link class="navbar-item block-mobile" :to="{name: 'Faq'}">FAQ</router-link>
             </div>
         </div>
