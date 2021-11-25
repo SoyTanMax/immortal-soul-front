@@ -1,6 +1,5 @@
 <template>
     <div class="name">
-        <p class="bruce">bruce wayne</p>
         <p class="immortal">immortal soul</p>
     </div>
 </template>
@@ -19,7 +18,7 @@
     place-items: center;
     min-width: 100%;
     animation: disappear 3s ease;
-    animation-delay: 10s;
+    animation-delay: 5s;
 }
 p{
     position: absolute;
@@ -31,37 +30,16 @@ p{
     text-transform: uppercase;
     z-index: 99;
 }
-.bruce{
-    animation: flip1 6s ease-out;
-    transform: rotateX(90deg);
-}
 .immortal{
-    animation: flip2 9s ease-in;
-    transform: rotateX(0deg);
+    animation: shrink 5s ease-in;
 }
 /* Animations */
-@keyframes flip1 {
+@keyframes shrink {
     from{
-        font-size: 200px;
-        transform: rotateX(0deg);
+        font-size: 140px;
     }
-    50%{
+    to{
         font-size: 90px;
-        transform: rotateX(0deg);
-    }
-    to{
-        transform: rotateX(90deg);
-    }
-}
-@keyframes flip2 {
-    from{
-        transform: rotateX(90deg);
-    }
-    60%{
-        transform: rotateX(90deg);
-    }
-    to{
-        transform: rotateX(0deg);
     }
 }
 @keyframes disappear {

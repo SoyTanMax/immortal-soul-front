@@ -31,7 +31,7 @@ import { ref } from '@vue/reactivity'
             setTimeout(
                 function(){
                     animation.value = false
-                }, 12500
+                }, 8000
             )
             return { animation, text}
         }
