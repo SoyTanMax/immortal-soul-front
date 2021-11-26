@@ -10,8 +10,6 @@ export default {
         description2: 'The novel can only be read by wallet addresses holding an Immortal Soul 🕊️ NFT.',
         button: 'Mint'
     },
-    preview: {},
-    novel: {},
     dao: {
         title: 'DAO',
         phases: [

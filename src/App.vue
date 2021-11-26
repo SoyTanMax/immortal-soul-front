@@ -1,6 +1,8 @@
 <template>
     <div class="hero">
-        <Navbar class="navbar" />
+        <Navbar class="navbar"
+            :chapters="chapters"
+         />
         <router-view class="router" 
             :chapters="chapters">
         </router-view>

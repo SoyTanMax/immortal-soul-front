@@ -15,14 +15,24 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </div>
-                <p>{{ route }}</p>
                 <router-link class="navbar-item block-mobile" :to="{name: 'NFT'}">
                     NFT
                 </router-link>
                 <router-link class="navbar-item block-mobile" :to="{name: 'DAO'}">DAO</router-link>
                 <div>
-                    <router-link v-if="user" class="navbar-item block-mobile" :to="{name: 'Novel'}">NOVEL</router-link>
+                    <router-link v-if="$store.state.user" class="navbar-item block-mobile" :to="{name: 'Novel'}">NOVEL</router-link>
                     <router-link v-else class="navbar-item block-mobile" :to="{name: 'Novel'}">PREVIEW</router-link>
+                </div>
+                <div class="chapters" v-for="chapter in chapters" :key="chapter.id">
+                    <div class="chapter-name" @click="changeChapter(chapter.id)" :class="{'is-disabled': !$store.state.user && chapter.id > 1}">
+                        <p v-if="$store.state.currentChapter == chapter.id" class="is-uppercase name is-active has-text-white is-size-7">{{ chapter.roman }} {{ chapter.name }}</p>
+                        <div class="is-flex" v-else>
+                            <svg v-if="!$store.state.user && chapter.id > 1" xmlns="http://www.w3.org/2000/svg" class="lock h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                            </svg>
+                            <p class="is-uppercase name is-size-7">{{ chapter.roman }} {{ chapter.name }}</p> 
+                        </div>
+                    </div>
                 </div>
                 <router-link class="navbar-item block-mobile" :to="{name: 'Faq'}">FAQ</router-link>
             </div>
@@ -31,17 +41,22 @@
 </template>
 
 <script>
-    import { computed, ref } from '@vue/reactivity'
+    import { useStore } from 'vuex'
+    import { ref } from '@vue/reactivity'
     export default {
         name: 'Navbar',
         props: ['chapters'],
         setup(){
+            
+            const store = useStore()
+
+            function changeChapter(id){
+                store.commit('CHANGE_CHAPTER', id)
+            }
 
             const showNav = ref(false)
 
-            const user = ref(true)
-
-            return { showNav, user}
+            return { showNav, changeChapter }
         }
     }
 </script>
@@ -66,6 +81,7 @@
     width: 100%;
     padding-left: var(--vertical-padding);
     padding-right: var(--vertical-padding);
+
 }
 a{
     display: flex;
@@ -83,6 +99,13 @@ img{
     width: 70px;
     margin-right: 12px;
 }
+.chapters{
+    padding: 8px;
+    display: none;
+}
+.is-disabled{
+    pointer-events: none;
+}
 @media screen and (max-width: 1023px) {
     .logo{
         font-size: 24px;
@@ -95,6 +118,7 @@ img{
     }
     svg{
         width: 28px;
+        margin-bottom: 24px;
     }
     .navbar-menu{
         position: absolute;
@@ -109,12 +133,24 @@ img{
         padding-left: var(--vertical-padding-mobile);
         padding-right: var(--vertical-padding-mobile);
         overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .chapters{
+        display: flex;
+    }
+    .lock{
+        max-width: 16px;
+        margin-right: 6px;
+        margin-bottom: 0;
     }
     .navbar-burger{
         position: absolute;
         top: 9px;
         right: 24px;
 
+    }
+    .x{
+        width: 28px;
     }
     .x-container{
         display: flex;
@@ -129,6 +165,5 @@ img{
         color: var(--gold) !important;
         background: none !important;
     }
-    
 }
 </style>
